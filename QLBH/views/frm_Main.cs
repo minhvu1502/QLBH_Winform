@@ -3,6 +3,8 @@ using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using QLBH.views;
 using System.Windows.Forms;
+using QLBH.Common;
+
 namespace QLBH
 {
     public partial class frm_Main : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -224,6 +226,14 @@ namespace QLBH
             frm.Show();
             xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(TabKhachHang.Text)];
         }
+
+        private readonly string _username;
+        public frm_Main(string username)
+        {
+            InitializeComponent();
+            tabstatic = xtraTabControl1;
+            _username = username;
+        }
         //mở tab hóa đơn nhập
         private void btn_HoaDon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -305,6 +315,8 @@ namespace QLBH
 
         private void Frm_Main_Load(object sender, System.EventArgs e)
         {
+            barButtonItem7.Caption = "Đăng Xuất";
+            barStaticItem1.Caption = "Xin Chào " + _username;
             XtraTabPage TabBatDau = new XtraTabPage();
             TabBatDau.Text = "Bắt Đầu";
             if (KiemTraTabPage(TabBatDau.Text) == false)
@@ -409,6 +421,35 @@ namespace QLBH
             frm.Dock = DockStyle.Fill;
             frm.Show();
             xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(TabBaoCaoNhapXuat.Text)];
+        }
+
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem7_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+           
+        }
+
+        private void barStaticItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem7_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void barButtonItem7_ItemClick_3(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Hide();
+            Login frm = new Login();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }

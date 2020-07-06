@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\LoginInfo.cs" />
     <Compile Include="Model_Class\Class_ChiTietHoaDonNhap.cs" />
     <Compile Include="Model_Class\Class_ChiTietPhieuDB.cs" />
     <Compile Include="Model_Class\Class_CongDung.cs" />
@@ -83,6 +84,12 @@
       <DependentUpon>QLNhaHangDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repository\ConnectAndQuery.cs" />
+    <Compile Include="views\DangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\DangKi.Designer.cs">
+      <DependentUpon>DangKi.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\dsTongTienQuy.cs">
       <DependentUpon>dsTongTienQuy.xsd</DependentUpon>
     </Compile>
@@ -221,6 +228,12 @@
     <Compile Include="views\frm_ThongTinPhienBan.Designer.cs">
       <DependentUpon>frm_ThongTinPhienBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\RpAllNam.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -281,6 +294,9 @@
       <DependentUpon>Rp_AllThang.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="views\DangKi.resx">
+      <DependentUpon>DangKi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\frm_back.resx">
       <DependentUpon>frm_back.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\frm_ThongTinPhienBan.resx">
       <DependentUpon>frm_ThongTinPhienBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\RpAllNam.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -442,6 +461,7 @@
   <ItemGroup>
     <None Include="Resources\logo-mixigaming.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
