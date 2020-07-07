@@ -65,11 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LoginInfo.cs" />
+    <Compile Include="Model_Class\Class_Ban.cs" />
     <Compile Include="Model_Class\Class_ChiTietHoaDonNhap.cs" />
     <Compile Include="Model_Class\Class_ChiTietPhieuDB.cs" />
     <Compile Include="Model_Class\Class_CongDung.cs" />
     <Compile Include="Model_Class\Class_HoaDonNhap.cs" />
     <Compile Include="Model_Class\Class_Khach.cs" />
+    <Compile Include="Model_Class\Class_LoaiBan.cs" />
     <Compile Include="Model_Class\Class_LoaiMon.cs" />
     <Compile Include="Model_Class\Class_MonAn.cs" />
     <Compile Include="Model_Class\Class_NguyenLieu.cs" />
@@ -112,6 +114,12 @@
     <Compile Include="views\frm_back.Designer.cs">
       <DependentUpon>frm_back.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\frm_Ban.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\frm_Ban.Designer.cs">
+      <DependentUpon>frm_Ban.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\frm_chitietdatban.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +155,12 @@
     </Compile>
     <Compile Include="views\frm_KhachHang.Designer.cs">
       <DependentUpon>frm_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\frm_LoaiBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\frm_LoaiBan.Designer.cs">
+      <DependentUpon>frm_LoaiBan.cs</DependentUpon>
     </Compile>
     <Compile Include="views\frm_LoaiMonAn.cs">
       <SubType>Form</SubType>
@@ -300,6 +314,9 @@
     <EmbeddedResource Include="views\frm_back.resx">
       <DependentUpon>frm_back.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\frm_Ban.resx">
+      <DependentUpon>frm_Ban.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\frm_chitietdatban.resx">
       <DependentUpon>frm_chitietdatban.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\frm_KhachHang.resx">
       <DependentUpon>frm_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\frm_LoaiBan.resx">
+      <DependentUpon>frm_LoaiBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\frm_LoaiMonAn.resx">
       <DependentUpon>frm_LoaiMonAn.cs</DependentUpon>

@@ -451,5 +451,41 @@ namespace QLBH
             frm.ShowDialog();
             this.Close();
         }
+
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage TabBanAn = new XtraTabPage();
+            TabBanAn.Text = "Bàn Ăn";
+            if (KiemTraTabPage(TabBanAn.Text) == false)
+            {
+                xtraTabControl1.TabPages.Add(TabBanAn);
+            }
+            else
+                TabBanAn.PageVisible = true;
+            frm_RpNhapXuat frm = new frm_RpNhapXuat();
+            frm.TopLevel = false;
+            frm.Parent = xtraTabControl1.TabPages[ViTriTabPage(TabBanAn.Text)];
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(TabBanAn.Text)];
+        }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraTabPage TabLoaiBanAn = new XtraTabPage();
+            TabLoaiBanAn.Text = "Loại Bàn Ăn";
+            if (KiemTraTabPage(TabLoaiBanAn.Text) == false)
+            {
+                xtraTabControl1.TabPages.Add(TabLoaiBanAn);
+            }
+            else
+                TabLoaiBanAn.PageVisible = true;
+            frm_LoaiBan frm = new frm_LoaiBan();
+            frm.TopLevel = false;
+            frm.Parent = xtraTabControl1.TabPages[ViTriTabPage(TabLoaiBanAn.Text)];
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+            xtraTabControl1.SelectedTabPage = xtraTabControl1.TabPages[ViTriTabPage(TabLoaiBanAn.Text)];
+        }
     }
 }

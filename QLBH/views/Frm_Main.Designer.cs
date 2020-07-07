@@ -71,25 +71,28 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_DatBan = new DevExpress.XtraBars.BarButtonItem();
             this.btn_chitietdatban = new DevExpress.XtraBars.BarButtonItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage9 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage10 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.editFormUserControl1 = new DevExpress.XtraGrid.Views.Grid.EditFormUserControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
-            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.ribbonPage10 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPage8
@@ -423,9 +426,11 @@
             this.barButtonItem5,
             this.barButtonItem6,
             this.barStaticItem1,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barButtonItem9});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 39;
+            this.ribbonControl1.MaxItemId = 41;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -465,15 +470,27 @@
             this.btn_chitietdatban.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btn_chitietdatban.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_chitietdatban_ItemClick);
             // 
-            // repositoryItemTextEdit1
+            // barStaticItem1
             // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.barStaticItem1.Caption = "barStaticItem1";
+            this.barStaticItem1.Id = 30;
+            this.barStaticItem1.Name = "barStaticItem1";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Đăng Xuất";
+            this.barButtonItem7.Id = 38;
+            this.barButtonItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
+            this.barButtonItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.LargeImage")));
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick_3);
             // 
             // ribbonPage9
             // 
             this.ribbonPage9.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup11});
             this.ribbonPage9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage9.ImageOptions.Image")));
             this.ribbonPage9.Name = "ribbonPage9";
             this.ribbonPage9.Text = "Phiếu Đặt Bàn";
@@ -484,6 +501,38 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.btn_chitietdatban);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Phiếu Đặt Bàn";
+            // 
+            // ribbonPage10
+            // 
+            this.ribbonPage10.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup9});
+            this.ribbonPage10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage10.ImageOptions.Image")));
+            this.ribbonPage10.Name = "ribbonPage10";
+            this.ribbonPage10.Text = "Đăng Xuất";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Hoạt Động";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemMemoEdit1
+            // 
+            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
+            // 
+            // repositoryItemHypertextLabel1
+            // 
+            this.repositoryItemHypertextLabel1.Name = "repositoryItemHypertextLabel1";
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
             // 
             // editFormUserControl1
             // 
@@ -510,48 +559,30 @@
             this.ribbonPage7.Name = "ribbonPage7";
             this.ribbonPage7.Text = "Trợ Giúp";
             // 
-            // repositoryItemMemoEdit1
+            // ribbonPageGroup11
             // 
-            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
+            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Bàn Ăn";
             // 
-            // barStaticItem1
+            // barButtonItem8
             // 
-            this.barStaticItem1.Caption = "barStaticItem1";
-            this.barStaticItem1.Id = 30;
-            this.barStaticItem1.Name = "barStaticItem1";
+            this.barButtonItem8.Caption = "Bàn Ăn";
+            this.barButtonItem8.Id = 39;
+            this.barButtonItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.Image")));
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
             // 
-            // repositoryItemHypertextLabel1
+            // barButtonItem9
             // 
-            this.repositoryItemHypertextLabel1.Name = "repositoryItemHypertextLabel1";
-            // 
-            // repositoryItemHyperLinkEdit1
-            // 
-            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            // 
-            // ribbonPage10
-            // 
-            this.ribbonPage10.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup9});
-            this.ribbonPage10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage10.ImageOptions.Image")));
-            this.ribbonPage10.Name = "ribbonPage10";
-            this.ribbonPage10.Text = "Đăng Xuất";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "Hoạt Động";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "Đăng Xuất";
-            this.barButtonItem7.Id = 38;
-            this.barButtonItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.Image")));
-            this.barButtonItem7.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem7.ImageOptions.LargeImage")));
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick_3);
+            this.barButtonItem9.Caption = "Loại Bàn Ăn";
+            this.barButtonItem9.Id = 40;
+            this.barButtonItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
             // frm_Main
             // 
@@ -571,10 +602,10 @@
             this.Load += new System.EventHandler(this.Frm_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -635,6 +666,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }
 

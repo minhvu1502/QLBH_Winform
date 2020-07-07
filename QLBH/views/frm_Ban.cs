@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Text;
 using System.Linq;
@@ -9,35 +10,39 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLBH.Model_Class;
-using System.Data.SqlClient;
 using QLBH.Repository;
-using System.Data.Common;
 
-namespace QLBH
+namespace QLBH.views
 {
-    public partial class frm_CongDung : DevExpress.XtraEditors.XtraForm
+    public partial class frm_Ban : DevExpress.XtraEditors.XtraForm
     {
-        List<Class_CongDung> Test;
-        ConnectAndQuery query = new ConnectAndQuery();
-        public frm_CongDung()
+        public frm_Ban()
         {
             InitializeComponent();
             fill();
         }
-        public new List<Class_CongDung> test1()
+        ConnectAndQuery query = new ConnectAndQuery();
+        private List<Class_Ban> Test;
+        public new List<Class_Ban> test1()
         {
             query.ketnoiSQL();
-            string sql = "SELECT * FROM CongDung";
-            List<Class_CongDung> list = new List<Class_CongDung>();
+            string sql = "SELECT * FROM Ban";
+            List<Class_Ban> list = new List<Class_Ban>();
             using (DbDataReader reader = query.Reader(sql))
             {
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        string MaCongDung = reader.GetString(0);
-                        string TenCongDung = reader.GetString(1);
-                        Class_CongDung Test = new Class_CongDung(MaCongDung, TenCongDung);
+                        string MaBan = reader.GetString(0);
+                        string MaLoaiBan = reader.GetString(1);
+                        string TenBan = reader.GetString(2);
+                        Class_Ban Test = new Class_Ban()
+                        {
+                            MaBan = MaBan,
+                            MaLoaiBan = MaLoaiBan,
+                            TenBan = TenBan
+                        };
                         list.Add(Test);
                     }
                 }
@@ -47,7 +52,7 @@ namespace QLBH
         }
         private void fill()
         {
-            DataTable data = query.DocBang("select * from CongDung");
+            DataTable data = query.DocBang("select * from Ban");
             dataGridView1.DataSource = data;
         }
 
@@ -57,23 +62,23 @@ namespace QLBH
             bool check = false;
             for (int i = 0; i < Test.Count; i++)
             {
-                if (txt_LoaiBenh.Text.Trim() == Test[i].MaCongDung1)
+                if (txt_MaBan.Text.Trim() == Test[i].MaLoaiBan)
                 {
                     check = true;
                     break;
                 }
             }
-            if (check==true)
+            if (check == true)
             {
                 if (MessageBox.Show("Bạn có muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo,
                    MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string sql = "delete from CongDung where MaCongDung = N'" + txt_LoaiBenh.Text + "'";
+                    string sql = "delete from Ban where MaBan = N'" + txt_MaBan.Text + "'";
                     query.CapNhatDuLieu(sql);
                     fill();
 
-                    txt_LoaiBenh.Text = "";
-                    txt_STT.Text = "";
+                    txt_MaBan.Text = "";
+                    txt_TenBan.Text = "";
                 }
             }
             else
@@ -82,17 +87,17 @@ namespace QLBH
             }
         }
 
-        private void Btn_refesrh_Click(object sender, EventArgs e)
+        private void Btn_update_Click(object sender, EventArgs e)
         {
-            if (txt_LoaiBenh.Text.Trim() != "" && txt_STT.Text.Trim() != "")
+            if (txt_MaBan.Text.Trim() != "" && txt_TenBan.Text.Trim() != "")
             {
-                string sql = "UPDATE CongDung set TenCongDung=N'" + txt_STT.Text + "' where MaCongDung=N'"+txt_LoaiBenh.Text+"'";
+                string sql = "UPDATE Ban set TenBan=N'" + txt_TenBan.Text + "', MaLoaiBan=N'"+cb_maloaiban.Text+"' where MaBan=N'" + txt_MaBan.Text + "'";
                 query.CapNhatDuLieu(sql);
                 fill();
 
 
-                txt_LoaiBenh.Text = "";
-                txt_STT.Text = "";
+                txt_MaBan.Text = "";
+                txt_TenBan.Text = "";
             }
             else
             {
@@ -107,30 +112,32 @@ namespace QLBH
 
             for (int i = 0; i < Test.Count; i++)
             {
-                if (Test[i].MaCongDung1.Equals(txt_LoaiBenh.Text))
+                if (Test[i].MaLoaiBan.Equals(txt_MaBan.Text))
                 {
                     check = true;
                     MessageBox.Show("Đã có mã phiếu này, vui lòng nhập lại", "Thông báo");
                     break;
                 }
+
             }
-            if (check == false )
+            if (check == false)
             {
-                if (txt_LoaiBenh.Text.Trim() != "" && txt_STT.Text.Trim() != "")
+                if (txt_MaBan.Text.Trim() != "" && txt_TenBan.Text.Trim() != "" && cb_maloaiban.Text.Trim() != "")
                 {
-                    string sql = "insert into CongDung values(N'" + txt_LoaiBenh.Text + "',N'" + txt_STT.Text + "')";
+                    string sql = "insert into Ban values(N'" + txt_MaBan.Text + "',N'" + cb_maloaiban.Text + "', N'"+txt_TenBan.Text+"')";
                     query.CapNhatDuLieu(sql);
                     fill();
-                    txt_LoaiBenh.Text = "";
-                    txt_STT.Text = "";
+                    txt_MaBan.Text = "";
+                    txt_TenBan.Text = "";
+                    cb_maloaiban.SelectedIndex = -1;
                 }
                 else
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo");
                 }
             }
-           
         }
+
         private void Btn_close_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -141,22 +148,17 @@ namespace QLBH
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            txt_LoaiBenh.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txt_STT.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txt_LoaiBenh.Enabled = false;
+            txt_MaBan.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txt_TenBan.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txt_MaBan.Enabled = false;
         }
 
         private void Btn_refresh_Click(object sender, EventArgs e)
         {
-            txt_LoaiBenh.Text = "";
-            txt_LoaiBenh.Enabled = true;
-            txt_STT.Text = "";
+            txt_MaBan.Text = "";
+            txt_MaBan.Enabled = true;
+            txt_TenBan.Text = "";
             fill();
-        }
-
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
