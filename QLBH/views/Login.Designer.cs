@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.hyperlinkLabelControl1 = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -39,7 +40,7 @@
             this.btn_login = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.checkRemember = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -67,6 +68,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.checkRemember);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.hyperlinkLabelControl1);
             this.panelControl1.Controls.Add(this.labelControl2);
@@ -80,6 +82,15 @@
             this.panelControl1.Size = new System.Drawing.Size(293, 263);
             this.panelControl1.TabIndex = 0;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(180, 134);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 7;
+            this.simpleButton1.Text = "Thoát";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // hyperlinkLabelControl1
             // 
             this.hyperlinkLabelControl1.Location = new System.Drawing.Point(78, 163);
@@ -91,7 +102,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(29, 111);
+            this.labelControl2.Location = new System.Drawing.Point(51, 80);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 13);
             this.labelControl2.TabIndex = 5;
@@ -99,7 +110,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(29, 85);
+            this.labelControl1.Location = new System.Drawing.Point(51, 54);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(51, 13);
             this.labelControl1.TabIndex = 4;
@@ -107,7 +118,7 @@
             // 
             // txt_pass
             // 
-            this.txt_pass.Location = new System.Drawing.Point(98, 108);
+            this.txt_pass.Location = new System.Drawing.Point(120, 77);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Properties.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(136, 20);
@@ -115,7 +126,7 @@
             // 
             // txt_user
             // 
-            this.txt_user.Location = new System.Drawing.Point(98, 82);
+            this.txt_user.Location = new System.Drawing.Point(120, 51);
             this.txt_user.Name = "txt_user";
             this.txt_user.Size = new System.Drawing.Size(136, 20);
             this.txt_user.TabIndex = 2;
@@ -149,14 +160,16 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // simpleButton1
+            // checkRemember
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(180, 134);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "Thoát";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.checkRemember.AutoSize = true;
+            this.checkRemember.Location = new System.Drawing.Point(120, 111);
+            this.checkRemember.Name = "checkRemember";
+            this.checkRemember.Size = new System.Drawing.Size(93, 17);
+            this.checkRemember.TabIndex = 8;
+            this.checkRemember.Text = "Nhớ Mật Khẩu";
+            this.checkRemember.UseVisualStyleBackColor = true;
+            this.checkRemember.CheckedChanged += new System.EventHandler(this.checkRemember_CheckedChanged);
             // 
             // Login
             // 
@@ -167,6 +180,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -193,5 +207,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.CheckBox checkRemember;
     }
 }

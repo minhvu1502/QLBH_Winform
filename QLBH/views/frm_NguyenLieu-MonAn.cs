@@ -33,6 +33,8 @@ namespace QLBH
         {
             MonAn = new frm_MonAn().Select();
             NL = new frm_NguyenLieu().Select();
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
             for (int i = 0; i < MonAn.Count; i++)
             {
                 comboBox1.Items.Add(MonAn[i].MaMonAn1);
@@ -46,6 +48,7 @@ namespace QLBH
         {
             DataTable data = query.DocBang("select * from NguyenLieu_MonAn");
             dataGridView1.DataSource = data;
+            add();
         }
         private List<Class_NguyenLieu_MonAn> test1()
         {

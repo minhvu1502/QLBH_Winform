@@ -11,5 +11,6 @@ namespace QLBH.Model_Class
         public string MaBan { get; set; }
         public string MaLoaiBan { get; set; }
         public string TenBan { get; set; }
+        public bool Status { get; set; }
     }
 }

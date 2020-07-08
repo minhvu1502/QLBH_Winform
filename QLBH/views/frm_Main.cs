@@ -462,7 +462,7 @@ namespace QLBH
             }
             else
                 TabBanAn.PageVisible = true;
-            frm_RpNhapXuat frm = new frm_RpNhapXuat();
+            frm_Ban frm = new frm_Ban();
             frm.TopLevel = false;
             frm.Parent = xtraTabControl1.TabPages[ViTriTabPage(TabBanAn.Text)];
             frm.Dock = DockStyle.Fill;

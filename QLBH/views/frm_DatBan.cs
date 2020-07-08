@@ -12,11 +12,14 @@ using QLBH.Model_Class;
 using System.Data.SqlClient;
 using QLBH.Repository;
 using System.Data.Common;
+using QLBH.Common;
+using QLBH.views;
 
 namespace QLBH
 {
     public partial class frm_DatBan : DevExpress.XtraEditors.XtraForm
     {
+        private readonly string _MaBan;
         List<Class_PhieuDatBan> Test;
         List<Class_Khach> Khach;
         List<Class_NhanVien> NV;
@@ -25,7 +28,16 @@ namespace QLBH
         {
             InitializeComponent();
             fill();
-            //add();
+            
+            txt_MaBan.Text = BanResult.MaBan;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        }
+        public frm_DatBan(string MaBan)
+        {
+
+            InitializeComponent();
+            fill();
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         }
@@ -47,7 +59,7 @@ namespace QLBH
         {
             string sql = "SELECT * FROM PhieuDatban";
             List<Class_PhieuDatBan> list = new List<Class_PhieuDatBan>();
-           query.ketnoiSQL();
+            query.ketnoiSQL();
             using (DbDataReader reader = query.Reader(sql))
             {
                 if (reader.HasRows)
@@ -79,8 +91,10 @@ namespace QLBH
         }
         private void fill()
         {
-            DataTable data = query.DocBang("select * from dbo.PhieuDatBan");
+            DataTable data = query.DocBang("select * from PhieuDatBan");
             dataGridView1.DataSource = data;
+            flowLayoutPanel1.Controls.Clear();
+            LoadData();
         }
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
@@ -149,16 +163,28 @@ namespace QLBH
                 }
 
             }
-
             if (check == false && k == true && nv == true)
             {
-                if (comboBox2.Text.Trim() != "" && txt_LoaiBenh.Text.Trim() != "" && comboBox1.Text.Trim() != "" && dateTimePicker1.Text.Trim() != "" && dateTimePicker2.Text.Trim() != "")
+                if (DateTime.Compare(DateTime.Today, dateTimePicker2.Value) == 1)
                 {
-                    string sql = "insert into PhieuDatBan values(" + "N'" + txt_LoaiBenh.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "',N'" + Convert.ToDateTime(dateTimePicker1.Text) + "','" + Convert.ToDateTime(dateTimePicker2.Text) + "','" + 0 + "')";
+                    MessageBox.Show("ngày dùng phải lớn hơn hoặc bằng ngày hiện tại", "Thông báo");
+                }
+                else if (DateTime.Compare(DateTime.Now, dateTimePicker1.Value) == -1)
+                {
+                    MessageBox.Show("Ngày đặt phải nhỏ hơn hoặc bằng ngày hiện tại", "Thông báo");
+                }
+                else if (DateTime.Compare(dateTimePicker1.Value, dateTimePicker2.Value) == 1)
+                {
+                    MessageBox.Show("Ngày đặt phải nhỏ hơn hoặc bằng ngày dùng", "Thông báo");
+                }
+                else if (comboBox2.Text.Trim() != "" && txt_LoaiBenh.Text.Trim() != "" && comboBox1.Text.Trim() != "" && dateTimePicker1.Text.Trim() != "" && dateTimePicker2.Text.Trim() != "" && txt_MaBan.Text.Trim() !="")
+                {
+                    var ngaydat = Revese(dateTimePicker1.Text);
+                    var ngaydi = Revese(dateTimePicker2.Text);
+
+                    string sql = "insert into PhieuDatBan values(" + "N'" + txt_LoaiBenh.Text + "',N'" + comboBox1.Text + "',N'" + comboBox2.Text + "',CAST( N'" + ngaydat + "' as DateTime),CAST( N'" + ngaydi + "' as DateTime),'" + 0 + "', N'"+txt_MaBan.Text+"')";
                     query.CapNhatDuLieu(sql);
                     fill();
-
-                    //Select.Add(new Class_PhieuDatBan(txt_LoaiBenh.Text, comboBox1.Text, comboBox2.Text, Convert.ToDateTime(textEdit2.Text), Convert.ToDateTime(textEdit3.Text), Convert.Todouble(textEdit4.Text)));
                     comboBox2.Text = "";
                     txt_LoaiBenh.Text = "";
                     comboBox1.Text = "";
@@ -186,7 +212,7 @@ namespace QLBH
                     break;
                 }
             }
-            if (check==true)
+            if (check == true)
             {
                 if (MessageBox.Show("Bạn có muốn xóa không ?", "Thông báo", MessageBoxButtons.YesNo,
        MessageBoxIcon.Question) == DialogResult.Yes)
@@ -248,9 +274,11 @@ namespace QLBH
         private void btn_update_Click(object sender, EventArgs e)
         {
             Test = Select();
-            if (comboBox2.Text.Trim() != "" && txt_LoaiBenh.Text.Trim() != "" && comboBox1.Text.Trim() != "" && dateTimePicker1.Text.Trim() != "" && dateTimePicker2.Text.Trim() != "")
+            if (comboBox2.Text.Trim() != "" && txt_LoaiBenh.Text.Trim() != "" && comboBox1.Text.Trim() != "" && dateTimePicker1.Text.Trim() != "" && dateTimePicker2.Text.Trim() != "" && txt_MaBan.Text.Trim() != "")
             {
-                string sql = "update PhieuDatBan set MaKhach=N'" + comboBox1.Text + "', MaNhanVien=N'" + comboBox2.Text + "', NgayDat=N'" + Convert.ToDateTime(dateTimePicker1.Text) + "', NgayDung=N'" + Convert.ToDateTime(dateTimePicker2.Text) + "' where MaPhieu = N'" + txt_LoaiBenh.Text + "'";
+                var ngaydat = Revese(dateTimePicker1.Text);
+                var ngaydi = Revese(dateTimePicker2.Text);
+                string sql = "update PhieuDatBan set MaKhach=N'" + comboBox1.Text + "', MaNhanVien=N'" + comboBox2.Text + "', NgayDat=CAST( N'" + ngaydat + "' as DateTime), NgayDung=CAST( N'" + ngaydi + "' as DateTime), MaBan = N'" + txt_MaBan.Text + "' where MaPhieu = N'" + txt_LoaiBenh.Text + "'";
                 query.CapNhatDuLieu(sql);
                 fill();
 
@@ -267,14 +295,77 @@ namespace QLBH
             }
         }
 
-        private void txt_LoaiBenh_EditValueChanged(object sender, EventArgs e)
+        public string Revese(string x)
         {
-
+            var p = x;
+            var z = p.Split('/');
+            Array.Reverse(z);
+            var k = string.Join("", z);
+            return k;
+        }
+        List<Button> list = new List<Button>();
+        public void LoadData()
+        {
+            DataTable data, data1;
+            string sql;
+            sql = "  select * from PhieuDatBan where DATEDIFF(DAY, GETDATE(), NgayDung) >= 0";
+            data = query.DocBang(sql);
+            sql = "select * from Ban";
+            data1 = query.DocBang(sql);
+            for (int i = 0; i < data1.Rows.Count; i++)
+            {
+                Button button = new Button();
+                button.Text = data1.Rows[i]["TenBan"].ToString();
+                button.Height = 35;
+                button.Width = 100;
+                button.Anchor = AnchorStyles.None;
+                button.Image = Image.FromFile("F:\\CSharp-master\\CSharp-master\\BTLCSharp\\QLBH\\QLBH\\images\\Household-Table-icon.png");
+                button.TextImageRelation = TextImageRelation.ImageBeforeText;
+                for (int j = 0; j < data.Rows.Count; j++)
+                {
+                    if (data.Rows[j]["MaBan"].ToString() == data1.Rows[i]["MaBan"].ToString())
+                    {
+                        button.BackColor = Color.Red;
+                    }
+                }
+                flowLayoutPanel1.Controls.Add(button);
+                flowLayoutPanel1.AutoScroll = true;
+                list.Add(button);
+                button.Click += new EventHandler(this.buttonClick);
+            }
         }
 
-        private void labelControl6_Click(object sender, EventArgs e)
-        {
 
+        public void buttonClick(object sender, EventArgs e)
+        {
+            var x = (Button)sender;
+            if (x.BackColor != Color.Red)
+            {
+                if (x.BackColor == Color.DodgerBlue)
+                {
+                    x.BackColor = Color.White;
+                    txt_MaBan.Text = "";
+                }
+                else
+                {
+                    x.BackColor = Color.DodgerBlue;
+                    var TenBan = x.Text;
+                    string sql = "select MaBan from Ban where TenBan = N'" + TenBan + "'";
+                    var tb = query.DocBang(sql);
+                    txt_MaBan.Text = tb.Rows[0]["MaBan"].ToString();
+                    foreach (var t in list)
+                    {
+                        if (t.BackColor == Color.DodgerBlue && t.Text != x.Text)
+                        {
+                            t.BackColor = Color.White;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bàn Này Đã Được Đặt");
+            }
         }
     }
 }

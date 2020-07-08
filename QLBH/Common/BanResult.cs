@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace QLBH.Common
 {
-   class LoginInfo
-   {
-       public static string Username = "";
-   }
+    class BanResult
+    {
+        public static string MaBan = "";
+    }
 }

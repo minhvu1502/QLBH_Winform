@@ -36,6 +36,18 @@ namespace QLBH.views
 
         private void btn_login_Click(object sender, EventArgs e)
         {
+            if (checkRemember.Checked)
+            {
+                Properties.Settings.Default.username = txt_user.Text;
+                Properties.Settings.Default.password = txt_pass.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.username = string.Empty;
+                Properties.Settings.Default.password = string.Empty;
+                Properties.Settings.Default.Save();
+            }
             var username = txt_user.Text;
             var password = txt_pass.Text;
             if (username.Equals(""))
@@ -64,6 +76,20 @@ namespace QLBH.views
                     MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!!!", "Thông Báo");
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.username != string.Empty)
+            {
+                txt_user.Text = Properties.Settings.Default.username;
+                txt_pass.Text = Properties.Settings.Default.password;
+                checkRemember.Checked = true;
+            }
+        }
+
+        private void checkRemember_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -23,6 +23,7 @@ namespace QLBH.views
         }
         ConnectAndQuery query = new ConnectAndQuery();
         private List<Class_Ban> Test;
+
         public new List<Class_Ban> test1()
         {
             query.ketnoiSQL();
@@ -52,8 +53,16 @@ namespace QLBH.views
         }
         private void fill()
         {
-            DataTable data = query.DocBang("select * from Ban");
+        List<string> list_LoaiBan = new List<string>();
+        DataTable data = query.DocBang("select * from Ban");
             dataGridView1.DataSource = data;
+            DataTable loaiban = query.DocBang("select MaLoaiBan from LoaiBan");
+            for (int i = 0; i < loaiban.Rows.Count; i++)
+            {
+                list_LoaiBan.Add(loaiban.Rows[i]["MaLoaiBan"].ToString());
+            }
+
+            cb_maloaiban.DataSource = list_LoaiBan;
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
@@ -77,8 +86,7 @@ namespace QLBH.views
                     query.CapNhatDuLieu(sql);
                     fill();
 
-                    txt_MaBan.Text = "";
-                    txt_TenBan.Text = "";
+                    clear();
                 }
             }
             else
@@ -94,10 +102,7 @@ namespace QLBH.views
                 string sql = "UPDATE Ban set TenBan=N'" + txt_TenBan.Text + "', MaLoaiBan=N'"+cb_maloaiban.Text+"' where MaBan=N'" + txt_MaBan.Text + "'";
                 query.CapNhatDuLieu(sql);
                 fill();
-
-
-                txt_MaBan.Text = "";
-                txt_TenBan.Text = "";
+                clear();
             }
             else
             {
@@ -149,15 +154,24 @@ namespace QLBH.views
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
             txt_MaBan.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txt_TenBan.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txt_TenBan.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             txt_MaBan.Enabled = false;
+            cb_maloaiban.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
 
+        public void clear()
+        {
+            txt_MaBan.Text = "";
+            txt_TenBan.Text = "";
+            cb_maloaiban.SelectedIndex = -1;
+
+        }
         private void Btn_refresh_Click(object sender, EventArgs e)
         {
             txt_MaBan.Text = "";
             txt_MaBan.Enabled = true;
             txt_TenBan.Text = "";
+            cb_maloaiban.SelectedIndex = -1;
             fill();
         }
     }
