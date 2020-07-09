@@ -9,5 +9,6 @@ namespace QLBH.Common
     class BanResult
     {
         public static string MaBan = "";
+        public static List<string> ListMaBan = new List<string>();
     }
 }

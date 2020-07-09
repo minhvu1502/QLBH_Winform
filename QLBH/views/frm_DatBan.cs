@@ -28,8 +28,6 @@ namespace QLBH
         {
             InitializeComponent();
             fill();
-            
-            txt_MaBan.Text = BanResult.MaBan;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         }
@@ -107,6 +105,7 @@ namespace QLBH
             dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[4].Value);
             //dateTimePicker2.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             textEdit4.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txt_MaBan.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
             txt_LoaiBenh.Enabled = false;
         }
         private void Frm_DatBan_Load(object sender, EventArgs e)
@@ -359,13 +358,27 @@ namespace QLBH
                         {
                             t.BackColor = Color.White;
                         }
+
                     }
                 }
             }
             else
-            {
-                MessageBox.Show("Bàn Này Đã Được Đặt");
+            { 
+                string sql = "select MaBan from Ban where TenBan = N'" + x.Text + "'"; 
+                DataTable tb = query.DocBang(sql);
+               BanResult.MaBan = tb.Rows[0]["MaBan"].ToString();
+                DialogResult result = MessageBox.Show("Bàn Này Đã Được Đặt", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    frm_XemBan frm = new frm_XemBan();
+                    frm.ShowDialog();
+                }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
