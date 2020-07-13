@@ -68,7 +68,7 @@ namespace QLBH.views
                 }
                 else
                 {
-                    sql = "INSERT account ([username], [password], [name], [phone], [email]) VALUES (N'" + username + "', N'" + password + "', N'" + name + "', N'" + phone + "', '" + email + "')";
+                    sql = "INSERT account ([username], [password], [name], [phone], [email]) VALUES (N'" + username + "', N'" + Hash(password) + "', N'" + name + "', N'" + phone + "', '" + email + "')";
                     db.CapNhatDuLieu(sql);
                     MessageBox.Show("Đăng kí thành công", "Thông Báo");
                     this.Hide();
@@ -77,6 +77,16 @@ namespace QLBH.views
                     this.Close();
                 }
             }
+        }
+        public string Hash(string password)
+        {
+            var bytes = new UTF8Encoding().GetBytes(password);
+            byte[] hashBytes;
+            using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+            {
+                hashBytes = algorithm.ComputeHash(bytes);
+            }
+            return Convert.ToBase64String(hashBytes);
         }
     }
 }

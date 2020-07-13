@@ -60,7 +60,7 @@ namespace QLBH.views
             }
             else
             {
-                string sql = "select name from Account where username ='" + username + "' and password ='" + password +"'" ;
+                string sql = "select name from Account where username ='" + username + "' and password ='" + Hash(password) +"'" ;
                 var result = db.DocBang(sql);
                 if (result.Rows.Count > 0)
                 {
@@ -87,7 +87,16 @@ namespace QLBH.views
                 checkRemember.Checked = true;
             }
         }
-
+        public string Hash(string password)
+        {
+            var bytes = new UTF8Encoding().GetBytes(password);
+            byte[] hashBytes;
+            using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+            {
+                hashBytes = algorithm.ComputeHash(bytes);
+            }
+            return Convert.ToBase64String(hashBytes);
+        }
         private void checkRemember_CheckedChanged(object sender, EventArgs e)
         {
         }

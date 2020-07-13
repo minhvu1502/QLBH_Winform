@@ -58,11 +58,6 @@
             this.txt_tennv = new DevExpress.XtraEditors.TextEdit();
             this.tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.qLNhaHangDataSet = new QLBH.QLNhaHangDataSet();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVienTableAdapter = new QLBH.QLNhaHangDataSetTableAdapters.NhanVienTableAdapter();
-            this.tableAdapterManager = new QLBH.QLNhaHangDataSetTableAdapters.TableAdapterManager();
             this.maNhanVienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNhanVienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioiTinhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +65,11 @@
             this.diaChiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maQueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dienThoaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNhaHangDataSet = new QLBH.QLNhaHangDataSet();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.nhanVienTableAdapter = new QLBH.QLNhaHangDataSetTableAdapters.NhanVienTableAdapter();
+            this.tableAdapterManager = new QLBH.QLNhaHangDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tkma.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tkten.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -83,16 +83,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).BeginInit();
             this.tablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHangDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHangDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl2.Location = new System.Drawing.Point(728, 21);
+            this.labelControl2.Location = new System.Drawing.Point(735, 21);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(69, 13);
             this.labelControl2.TabIndex = 3;
@@ -101,7 +101,7 @@
             // txt_tkma
             // 
             this.txt_tkma.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_tkma.Location = new System.Drawing.Point(805, 18);
+            this.txt_tkma.Location = new System.Drawing.Point(812, 18);
             this.txt_tkma.Name = "txt_tkma";
             this.txt_tkma.Size = new System.Drawing.Size(100, 20);
             this.txt_tkma.TabIndex = 1;
@@ -109,15 +109,16 @@
             // txt_tkten
             // 
             this.txt_tkten.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_tkten.Location = new System.Drawing.Point(557, 18);
+            this.txt_tkten.Location = new System.Drawing.Point(564, 18);
             this.txt_tkten.Name = "txt_tkten";
             this.txt_tkten.Size = new System.Drawing.Size(156, 20);
             this.txt_tkten.TabIndex = 0;
             // 
             // cb_maque
             // 
+            this.cb_maque.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cb_maque.FormattingEnabled = true;
-            this.cb_maque.Location = new System.Drawing.Point(390, 218);
+            this.cb_maque.Location = new System.Drawing.Point(409, 283);
             this.cb_maque.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cb_maque.Name = "cb_maque";
             this.cb_maque.Size = new System.Drawing.Size(137, 21);
@@ -126,8 +127,9 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(149, 151);
+            this.dateTimePicker1.Location = new System.Drawing.Point(168, 223);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(143, 21);
@@ -136,7 +138,7 @@
             // labelControl7
             // 
             this.labelControl7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl7.Location = new System.Drawing.Point(362, 280);
+            this.labelControl7.Location = new System.Drawing.Point(366, 287);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(37, 13);
             this.labelControl7.TabIndex = 51;
@@ -145,7 +147,7 @@
             // labelControl19
             // 
             this.labelControl19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl19.Location = new System.Drawing.Point(105, 280);
+            this.labelControl19.Location = new System.Drawing.Point(109, 287);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(51, 13);
             this.labelControl19.TabIndex = 43;
@@ -165,14 +167,14 @@
             this.panelControl2.Location = new System.Drawing.Point(3, 3);
             this.panelControl2.Name = "panelControl2";
             this.tablePanel1.SetRow(this.panelControl2, 0);
-            this.panelControl2.Size = new System.Drawing.Size(1392, 47);
+            this.panelControl2.Size = new System.Drawing.Size(1406, 47);
             this.panelControl2.TabIndex = 12;
             // 
             // btn_refresh
             // 
             this.btn_refresh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_refresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.ImageOptions.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(616, 6);
+            this.btn_refresh.Location = new System.Drawing.Point(623, 6);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(108, 34);
             this.btn_refresh.TabIndex = 36;
@@ -183,7 +185,7 @@
             // 
             this.button_timkiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_timkiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button_timkiem.ImageOptions.Image")));
-            this.button_timkiem.Location = new System.Drawing.Point(298, 7);
+            this.button_timkiem.Location = new System.Drawing.Point(305, 7);
             this.button_timkiem.Name = "button_timkiem";
             this.button_timkiem.Size = new System.Drawing.Size(100, 33);
             this.button_timkiem.TabIndex = 0;
@@ -194,7 +196,7 @@
             // 
             this.button_themmoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_themmoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button_themmoi.ImageOptions.Image")));
-            this.button_themmoi.Location = new System.Drawing.Point(403, 7);
+            this.button_themmoi.Location = new System.Drawing.Point(410, 7);
             this.button_themmoi.Name = "button_themmoi";
             this.button_themmoi.Size = new System.Drawing.Size(100, 33);
             this.button_themmoi.TabIndex = 1;
@@ -205,7 +207,7 @@
             // 
             this.button_capnhat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_capnhat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button_capnhat.ImageOptions.Image")));
-            this.button_capnhat.Location = new System.Drawing.Point(510, 7);
+            this.button_capnhat.Location = new System.Drawing.Point(517, 7);
             this.button_capnhat.Name = "button_capnhat";
             this.button_capnhat.Size = new System.Drawing.Size(100, 33);
             this.button_capnhat.TabIndex = 2;
@@ -216,7 +218,7 @@
             // 
             this.button_xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_xoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button_xoa.ImageOptions.Image")));
-            this.button_xoa.Location = new System.Drawing.Point(730, 7);
+            this.button_xoa.Location = new System.Drawing.Point(737, 7);
             this.button_xoa.Name = "button_xoa";
             this.button_xoa.Size = new System.Drawing.Size(100, 33);
             this.button_xoa.TabIndex = 3;
@@ -227,7 +229,7 @@
             // 
             this.button_thoat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_thoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("button_thoat.ImageOptions.Image")));
-            this.button_thoat.Location = new System.Drawing.Point(835, 7);
+            this.button_thoat.Location = new System.Drawing.Point(842, 7);
             this.button_thoat.Name = "button_thoat";
             this.button_thoat.Size = new System.Drawing.Size(100, 33);
             this.button_thoat.TabIndex = 4;
@@ -237,7 +239,7 @@
             // labelControl11
             // 
             this.labelControl11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl11.Location = new System.Drawing.Point(121, 249);
+            this.labelControl11.Location = new System.Drawing.Point(125, 256);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(34, 13);
             this.labelControl11.TabIndex = 35;
@@ -246,7 +248,7 @@
             // labelControl10
             // 
             this.labelControl10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl10.Location = new System.Drawing.Point(360, 222);
+            this.labelControl10.Location = new System.Drawing.Point(364, 229);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(40, 13);
             this.labelControl10.TabIndex = 34;
@@ -255,7 +257,7 @@
             // labelControl6
             // 
             this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl6.Location = new System.Drawing.Point(330, 191);
+            this.labelControl6.Location = new System.Drawing.Point(334, 198);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(71, 13);
             this.labelControl6.TabIndex = 30;
@@ -264,7 +266,7 @@
             // labelControl5
             // 
             this.labelControl5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl5.Location = new System.Drawing.Point(81, 191);
+            this.labelControl5.Location = new System.Drawing.Point(85, 198);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(75, 13);
             this.labelControl5.TabIndex = 29;
@@ -273,7 +275,7 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl1.Location = new System.Drawing.Point(478, 21);
+            this.labelControl1.Location = new System.Drawing.Point(485, 21);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(73, 13);
             this.labelControl1.TabIndex = 2;
@@ -282,7 +284,7 @@
             // labelControl9
             // 
             this.labelControl9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl9.Location = new System.Drawing.Point(111, 219);
+            this.labelControl9.Location = new System.Drawing.Point(115, 226);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(48, 13);
             this.labelControl9.TabIndex = 33;
@@ -293,7 +295,7 @@
             this.cbb_gioitinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbb_gioitinh.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.cbb_gioitinh.FormattingEnabled = true;
-            this.cbb_gioitinh.Location = new System.Drawing.Point(405, 216);
+            this.cbb_gioitinh.Location = new System.Drawing.Point(409, 223);
             this.cbb_gioitinh.Name = "cbb_gioitinh";
             this.cbb_gioitinh.Size = new System.Drawing.Size(136, 21);
             this.cbb_gioitinh.TabIndex = 26;
@@ -302,7 +304,7 @@
             // txt_dienthoai
             // 
             this.txt_dienthoai.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_dienthoai.Location = new System.Drawing.Point(164, 277);
+            this.txt_dienthoai.Location = new System.Drawing.Point(168, 284);
             this.txt_dienthoai.Name = "txt_dienthoai";
             this.txt_dienthoai.Size = new System.Drawing.Size(143, 20);
             this.txt_dienthoai.TabIndex = 16;
@@ -310,7 +312,7 @@
             // txt_diachi
             // 
             this.txt_diachi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_diachi.Location = new System.Drawing.Point(164, 246);
+            this.txt_diachi.Location = new System.Drawing.Point(168, 253);
             this.txt_diachi.Name = "txt_diachi";
             this.txt_diachi.Size = new System.Drawing.Size(377, 20);
             this.txt_diachi.TabIndex = 4;
@@ -318,7 +320,7 @@
             // txt_manv
             // 
             this.txt_manv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_manv.Location = new System.Drawing.Point(405, 188);
+            this.txt_manv.Location = new System.Drawing.Point(409, 195);
             this.txt_manv.Name = "txt_manv";
             this.txt_manv.Size = new System.Drawing.Size(137, 20);
             this.txt_manv.TabIndex = 2;
@@ -342,17 +344,17 @@
             this.groupControl1.Controls.Add(this.txt_tennv);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControl1.Location = new System.Drawing.Point(760, 114);
+            this.groupControl1.Location = new System.Drawing.Point(767, 114);
             this.groupControl1.Name = "groupControl1";
             this.tablePanel1.SetRow(this.groupControl1, 2);
-            this.groupControl1.Size = new System.Drawing.Size(635, 523);
+            this.groupControl1.Size = new System.Drawing.Size(642, 537);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Chi Tiết Nhân Viên";
             // 
             // txt_tennv
             // 
             this.txt_tennv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_tennv.Location = new System.Drawing.Point(164, 188);
+            this.txt_tennv.Location = new System.Drawing.Point(168, 195);
             this.txt_tennv.Name = "txt_tennv";
             this.txt_tennv.Size = new System.Drawing.Size(143, 20);
             this.txt_tennv.TabIndex = 0;
@@ -373,7 +375,7 @@
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 53F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 58F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1398, 640);
+            this.tablePanel1.Size = new System.Drawing.Size(1412, 654);
             this.tablePanel1.TabIndex = 3;
             // 
             // dataGridView1
@@ -400,58 +402,9 @@
             this.tablePanel1.SetRow(this.dataGridView1, 2);
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(751, 523);
+            this.dataGridView1.Size = new System.Drawing.Size(758, 537);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.DataGridView1_DoubleClick);
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.tablePanel1.SetColumn(this.panelControl1, 0);
-            this.tablePanel1.SetColumnSpan(this.panelControl1, 2);
-            this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.txt_tkma);
-            this.panelControl1.Controls.Add(this.txt_tkten);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(3, 56);
-            this.panelControl1.Name = "panelControl1";
-            this.tablePanel1.SetRow(this.panelControl1, 1);
-            this.panelControl1.Size = new System.Drawing.Size(1392, 52);
-            this.panelControl1.TabIndex = 6;
-            // 
-            // qLNhaHangDataSet
-            // 
-            this.qLNhaHangDataSet.DataSetName = "QLNhaHangDataSet";
-            this.qLNhaHangDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.qLNhaHangDataSet;
-            // 
-            // nhanVienTableAdapter
-            // 
-            this.nhanVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ChiTietHoaDonNhapTableAdapter = null;
-            this.tableAdapterManager.ChiTietPhieuDBTableAdapter = null;
-            this.tableAdapterManager.CongDungTableAdapter = null;
-            this.tableAdapterManager.HoaDonNhapTableAdapter = null;
-            this.tableAdapterManager.KhachTableAdapter = null;
-            this.tableAdapterManager.LoaiMonTableAdapter = null;
-            this.tableAdapterManager.MonAnTableAdapter = null;
-            this.tableAdapterManager.NguyenLieu_MonAnTableAdapter = null;
-            this.tableAdapterManager.NguyenLieuTableAdapter = null;
-            this.tableAdapterManager.NhaCungCapTableAdapter = null;
-            this.tableAdapterManager.NhanVienTableAdapter = this.nhanVienTableAdapter;
-            this.tableAdapterManager.PhieuDatBanTableAdapter = null;
-            this.tableAdapterManager.QueTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLBH.QLNhaHangDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // maNhanVienDataGridViewTextBoxColumn
             // 
@@ -502,11 +455,60 @@
             this.dienThoaiDataGridViewTextBoxColumn.Name = "dienThoaiDataGridViewTextBoxColumn";
             this.dienThoaiDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.qLNhaHangDataSet;
+            // 
+            // qLNhaHangDataSet
+            // 
+            this.qLNhaHangDataSet.DataSetName = "QLNhaHangDataSet";
+            this.qLNhaHangDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.tablePanel1.SetColumn(this.panelControl1, 0);
+            this.tablePanel1.SetColumnSpan(this.panelControl1, 2);
+            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Controls.Add(this.txt_tkma);
+            this.panelControl1.Controls.Add(this.txt_tkten);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(3, 56);
+            this.panelControl1.Name = "panelControl1";
+            this.tablePanel1.SetRow(this.panelControl1, 1);
+            this.panelControl1.Size = new System.Drawing.Size(1406, 52);
+            this.panelControl1.TabIndex = 6;
+            // 
+            // nhanVienTableAdapter
+            // 
+            this.nhanVienTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ChiTietHoaDonNhapTableAdapter = null;
+            this.tableAdapterManager.ChiTietPhieuDBTableAdapter = null;
+            this.tableAdapterManager.CongDungTableAdapter = null;
+            this.tableAdapterManager.HoaDonNhapTableAdapter = null;
+            this.tableAdapterManager.KhachTableAdapter = null;
+            this.tableAdapterManager.LoaiMonTableAdapter = null;
+            this.tableAdapterManager.MonAnTableAdapter = null;
+            this.tableAdapterManager.NguyenLieu_MonAnTableAdapter = null;
+            this.tableAdapterManager.NguyenLieuTableAdapter = null;
+            this.tableAdapterManager.NhaCungCapTableAdapter = null;
+            this.tableAdapterManager.NhanVienTableAdapter = this.nhanVienTableAdapter;
+            this.tableAdapterManager.PhieuDatBanTableAdapter = null;
+            this.tableAdapterManager.QueTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLBH.QLNhaHangDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
             // frm_HoSoNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 640);
+            this.ClientSize = new System.Drawing.Size(1412, 654);
             this.ControlBox = false;
             this.Controls.Add(this.tablePanel1);
             this.IconOptions.ShowIcon = false;
@@ -526,11 +528,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHangDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHangDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
