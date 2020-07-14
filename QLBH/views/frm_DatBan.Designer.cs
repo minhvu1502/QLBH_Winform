@@ -135,6 +135,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(170, 21);
             this.dateTimePicker2.TabIndex = 32;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -293,7 +294,7 @@
             this.dataGridView1.ReadOnly = true;
             this.tablePanel1.SetRow(this.dataGridView1, 1);
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 549);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 563);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.DataGridView1_DoubleClick);
@@ -312,7 +313,7 @@
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 159F),
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(1370, 714);
+            this.tablePanel1.Size = new System.Drawing.Size(1370, 728);
             this.tablePanel1.TabIndex = 27;
             // 
             // tableLayoutPanel2
@@ -329,15 +330,15 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.13244F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.86756F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(715, 549);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(715, 563);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 64);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 482);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(709, 495);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -346,7 +347,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(709, 55);
+            this.panel1.Size = new System.Drawing.Size(709, 56);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -355,7 +356,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(239, 11);
+            this.label1.Location = new System.Drawing.Point(239, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(260, 33);
             this.label1.TabIndex = 0;
@@ -365,7 +366,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 714);
+            this.ClientSize = new System.Drawing.Size(1370, 728);
             this.ControlBox = false;
             this.Controls.Add(this.tablePanel1);
             this.IconOptions.ShowIcon = false;

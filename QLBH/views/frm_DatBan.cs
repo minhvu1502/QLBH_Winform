@@ -303,6 +303,7 @@ namespace QLBH
             return k;
         }
         List<Button> list = new List<Button>();
+        List<Button> list1 = new List<Button>();
         public void LoadData()
         {
             DataTable data, data1;
@@ -348,11 +349,12 @@ namespace QLBH
                 else
                 {
                     x.BackColor = Color.DodgerBlue;
-                    var TenBan = x.Text;
-                    string sql = "select MaBan from Ban where TenBan = N'" + TenBan + "'";
-                    var tb = query.DocBang(sql);
-                    txt_MaBan.Text = tb.Rows[0]["MaBan"].ToString();
-                    foreach (var t in list)
+                    //var TenBan = x.Text;
+                    //string sql = "select MaBan from Ban where TenBan = N'" + TenBan + "'";
+                    //var tb = query.DocBang(sql);
+                    //txt_MaBan.Text = tb.Rows[0]["MaBan"].ToString();
+                    txt_MaBan.Text = x.Text;
+                    foreach (var t in list1)
                     {
                         if (t.BackColor == Color.DodgerBlue && t.Text != x.Text)
                         {
@@ -364,7 +366,7 @@ namespace QLBH
             }
             else
             { 
-                string sql = "select MaBan from Ban where TenBan = N'" + x.Text + "'"; 
+                string sql = "select MaBan from Ban where MaBan = N'" + x.Text + "'"; 
                 DataTable tb = query.DocBang(sql);
                BanResult.MaBan = tb.Rows[0]["MaBan"].ToString();
                 DialogResult result = MessageBox.Show("Bàn Này Đã Được Đặt", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -379,6 +381,43 @@ namespace QLBH
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            list1.Clear();
+            string sql = "select * from Ban";
+            DataTable data1 = query.DocBang(sql);
+            for (int i = 0; i < data1.Rows.Count; i++)
+            {
+                Button button = new Button();
+                button.Text = data1.Rows[i]["MaBan"].ToString();
+                button.Height = 35;
+                button.Width = 100;
+                button.Anchor = AnchorStyles.None;
+                button.Image = Image.FromFile("F:\\CSharp-master\\CSharp-master\\BTLCSharp\\QLBH\\QLBH\\images\\Household-Table-icon.png");
+                button.TextImageRelation = TextImageRelation.ImageBeforeText;
+                list1.Add(button);
+            }
+            string date = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+            sql = "select MaBan from PhieuDatBan where NgayDung = N'" + date + "' and DATEDIFF(DAY, GETDATE(), NgayDung) >= 0";
+            DataTable db = query.DocBang(sql);
+            for (int i = 0; i < db.Rows.Count; i++)
+            {
+                foreach (var item in list1)
+                {
+                    if (db.Rows[i]["MaBan"].ToString() == item.Text)
+                    {
+                        item.BackColor = Color.Red;
+                    }
+                }
+            }
+            flowLayoutPanel1.Controls.Clear();
+            foreach (var item in list1)
+            {
+                flowLayoutPanel1.Controls.Add(item);
+                item.Click += new EventHandler(this.buttonClick);
+            }
         }
     }
 }
